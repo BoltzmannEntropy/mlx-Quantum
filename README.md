@@ -29,7 +29,9 @@ Our framework leverages Apple Silicon's unified memory architecture to deliver q
 - **Educational Focus**: Accessible interface for quantum algorithm research and education
 
 
-<img src="assets/HXH.png" alt="mlx-Quantum Logo"/>
+<h1 align="center">    
+  <img src="https://github.com/BoltzmannEntropy/polarization/blob/main/HXH.png" width="50%"></a>  
+</h1>
   
 ## 📊 Performance Highlights (UNVERIFIED CLAIMS) 
 
