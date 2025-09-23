@@ -3,7 +3,7 @@
 <div align="center">
   <img src="assets/mlx-logo.svg" alt="mlx-Quantum Logo"/>
 
-  **High-Performance Quantum Computing Framework for Apple Silicon**
+  **High-Performance Quantum Computing Framework for Apple Silicon - WORK IN PROGRESS -** 
 
   *MLX-Based Modular Architecture for Energy-Efficient Quantum Circuit Simulation*
 
@@ -17,23 +17,19 @@
 
 **mlx-Quantum** is the first quantum computing simulation framework designed specifically for Apple Silicon using Apple's MLX framework. Unlike traditional quantum simulators requiring manual Metal shader programming, mlx-Quantum provides pure C++ interfaces with automatic GPU acceleration, making quantum computing accessible without specialized GPU programming knowledge.
 
-Our framework leverages Apple Silicon's unified memory architecture to deliver quantum simulations competitive with NVIDIA's cuQuantum while offering 2.3x better energy efficiency. Published in ICLR 2025, mlx-Quantum demonstrates that consumer Apple hardware can achieve research-quality quantum simulation performance.
+Our framework leverages Apple Silicon's unified memory architecture to deliver quantum simulations competitive with NVIDIA's cuQuantum while offering better energy efficiency and demonstrates that consumer Apple hardware can achieve research-quality quantum simulation performance.
 
 ## 🚀 Key Features
 
 - 🚀 **MLX-Powered**: Automatic GPU acceleration without manual shader programming
 - 🧩 **Modular Architecture**: Reusable algorithm classes (mlxQFT, mlxGrover, mlxVQE, etc.)
 - 📚 **Educational Focus**: Three-part examples (Theory → Paper → Code) for learning
-- ⚡ **High Performance**: 85% of cuQuantum throughput with 2.3x better energy efficiency
 - 🍎 **Apple Silicon Optimized**: Unified memory architecture with M1/M2/M3/M4 support
-- 🔬 **Research Quality**: Complete ICLR paper implementation with 16+ theory examples
 - 📊 **Comprehensive Benchmarks**: cuQuantum comparison suite with performance analysis
 - **Performance Benchmarking**: Direct comparison framework with cuQuantum metrics
-- **Energy Efficient**: 2.3x lower power consumption compared to discrete GPU solutions
-- **Memory Optimized**: 15% better memory efficiency through Apple Silicon unified memory
 - **Educational Focus**: Accessible interface for quantum algorithm research and education
 
-## 📊 Performance Highlights
+## 📊 Performance Highlights (UNVERIFIED CLAIMS) 
 
 | Metric | mlxQuantum | cuQuantum | Advantage |
 |--------|--------------|-----------|-----------|
@@ -42,7 +38,7 @@ Our framework leverages Apple Silicon's unified memory architecture to deliver q
 | **Energy Efficiency** | 2.3x better | Baseline | Apple Silicon Optimization |
 | **Supported Qubits** | Up to 24 qubits | Variable | Educational & Research Scale |
 
-### Comprehensive cuQuantum vs mlxQuantum Benchmark Comparison
+### Comprehensive cuQuantum vs mlxQuantum Benchmark Comparison (UNVERIFIED CLAIMS) 
 
 The following table presents detailed performance comparisons based on identical benchmark protocols from the [NVIDIA cuQuantum Performance Benchmark Suite](https://github.com/NVIDIA/cuQuantum/tree/main/benchmarks):
 
@@ -57,22 +53,14 @@ The following table presents detailed performance comparisons based on identical
 | **QV** | cuQuantum | NVIDIA A100 | 8 | 1.20 | 0.080 | 250 | 0.0003 | baseline |
 | **QV** | cuQuantum | RTX4090 | 10 | 5.20 | 0.038 | 320 | 0.0001 | baseline |
 
-**Benchmark Methodology**: All tests replicate exact cuQuantum command protocols:
-- **QFT**: `nv-quantum-benchmarks circuit --frontend qiskit --backend cutn --compute-mode statevector --benchmark qft --nqubits N`
-- **QAOA**: `nv-quantum-benchmarks circuit --frontend cudaq --backend cudaq-mgpu --compute-mode expectation --benchmark qaoa --nqubits N`
-- **Quantum Volume**: `nv-quantum-benchmarks circuit --frontend qiskit --backend cusvaer --benchmark quantum_volume --nqubits N`
 
-**Key Performance Insights**:
-- **Energy Efficiency**: mlxQuantum achieves **126× average energy efficiency advantage** (MOPS/Watt) over enterprise GPUs
+**Key Performance Insights (UNVERIFIED CLAIMS)**:
 - **Consumer Hardware**: Runs on $2000 MacBook vs. $10,000+ GPU server requirements for cuQuantum
 - **Unified Memory**: 15% memory efficiency improvement eliminates CPU-GPU transfer overhead
 - **Competitive Performance**: Maintains 85% of cuQuantum absolute performance while using 8× less power
 
 **Hardware Specifications**:
 - **mlxQuantum**: Apple M1 Pro (16-core GPU, 30W power consumption, 16GB unified memory)
-- **cuQuantum A100**: NVIDIA A100 40GB (250W power consumption, discrete memory)
-- **cuQuantum H100**: NVIDIA H100 80GB (350W power consumption, ~2× A100 performance)
-- **cuQuantum RTX4090**: NVIDIA RTX4090 24GB (320W power consumption, consumer GPU)
 
 ## 📋 Requirements
 
@@ -94,9 +82,7 @@ The following table presents detailed performance comparisons based on identical
 
 ### Quantum-Classical Hybrid Computing
 
-mlxQuantum implements a Quantum-Classical-Quantum (QCQ) architecture similar to recent academic work [[arXiv:2403.05828]](https://arxiv.org/html/2403.05828v1), integrating quantum circuit simulation with classical optimization routines. This hybrid approach is essential for variational quantum algorithms and near-term quantum applications.
-
-### Performance Framework Comparison
+### Performance Framework Comparison (UNVERIFIED CLAIMS) 
 
 | Framework | Platform | Performance | Energy Efficiency | Memory Architecture | Developer Experience |
 |-----------|----------|-------------|-------------------|--------------------|-----------------------|
@@ -166,48 +152,6 @@ simulator.executeCircuit(complex_circuit, large_state);
 float expectation = simulator.computeExpectationValue(large_state, hamiltonian);
 ```
 
-### Quantum Circuit Construction
-
-```cpp
-// Build a quantum circuit
-QuantumCircuit circuit(3);  // 3-qubit circuit
-
-// Add gates
-circuit.addHadamard(0);
-circuit.addCNOT(0, 1);
-circuit.addRotationZ(2, M_PI/4);
-circuit.addControlledGate(0, 2, GateType::PauliX);
-
-// Optimize circuit
-circuit.optimize();
-
-// Execute on quantum state
-QuantumState state(3);
-simulator.executeCircuit(circuit, state);
-```
-
-### Grover's Algorithm Example
-
-```cpp
-// 3-qubit Grover's search for marked item |101⟩
-QuantumState state(3);
-
-// Initialize uniform superposition
-for (int i = 0; i < 3; i++) {
-    simulator.applyHadamard(i, state);
-}
-
-// Apply Grover iterations
-std::vector<int> marked_items = {5}; // |101⟩ = 5 in binary
-int optimal_iterations = static_cast<int>(M_PI * sqrt(8) / 4);
-
-for (int i = 0; i < optimal_iterations; i++) {
-    simulator.groverIteration(marked_items, state);
-}
-
-// Measure result - should find |101⟩ with high probability
-```
-
 ## 🏛️ Architecture
 
 ### Project Structure
@@ -227,10 +171,6 @@ mlxQuantum/
 
 ### Core Components
 
-- **`QuantumState`**: Manages quantum state vectors with Metal buffer integration
-- **`QuantumCircuit`**: Circuit construction and optimization framework
-- **`mlxQuantumSimulator`**: GPU-accelerated quantum operation execution
-- **`QuantumBenchmark`**: Performance testing and cuQuantum comparison tools
 
 ### Metal Shader Architecture
 
@@ -251,58 +191,12 @@ kernel void apply_hadamard(device float2* state_buffer [[buffer(0)]],
 ### Running Tests
 
 ```bash
-# Comprehensive quantum algorithm tests
-./QuantumTests
-
-# Metal GPU functionality verification
-./MetalTests
-
-# Performance benchmarking suite
-./mlxquantum --benchmark
-
-# Specific algorithm benchmarks
-./mlxquantum --benchmark-grover
-./mlxquantum --benchmark-qft
 ```
 
 ### Test Coverage
 
-- **Quantum Gates**: Validation of all single and two-qubit operations
-- **Bell State Creation**: Entanglement verification
-- **Grover's Algorithm**: Search algorithm correctness
-- **Quantum Fourier Transform**: Transform accuracy
-- **Metal Integration**: GPU compute shader functionality
-- **Performance Metrics**: Throughput and energy efficiency measurements
 
 ## 📖 Research & Documentation
-
-### Academic Paper
-
-The theoretical foundation and performance analysis are documented in our research paper:
-
-```bash
-cd paper/
-pdflatex main.tex
-bibtex main
-pdflatex main.tex
-pdflatex main.tex
-```
-
-**Paper Title**: "mlxQuantum: High-Performance Quantum Computing on Apple Silicon - A Comparative Analysis of Metal vs CUDA for Quantum Circuit Simulation"
-
-### Key Research Contributions
-
-1. **Unified Memory Optimization**: Novel approach to quantum state management using Apple Silicon's unified memory architecture, eliminating CPU-GPU data transfers and achieving 15% better memory efficiency compared to discrete GPU solutions
-
-2. **GPU Framework Comparative Analysis**: Comprehensive evaluation of CUDA, Vulkan, and Metal for quantum computing acceleration, demonstrating Metal's unique advantages in energy efficiency and memory utilization despite lower raw computational throughput
-
-3. **Energy Efficiency Breakthrough**: Systematic power consumption analysis showing 2.3x better energy efficiency compared to discrete GPU solutions, with detailed thermal and performance-per-watt characterization
-
-4. **Apple Silicon Quantum Computing Viability**: First comprehensive study demonstrating quantum computing acceleration on Apple Silicon, leveraging insights from LLM inference efficiency to quantum circuit simulation
-
-5. **Hybrid Quantum-Classical Integration**: Implementation of QCQ (Quantum-Classical-Quantum) architecture optimized for Apple Silicon's heterogeneous computing capabilities
-
-6. **Educational Accessibility Framework**: Complete quantum computing education platform designed for accessibility, with comprehensive documentation and learning resources
 
 ### Academic Citations and References
 
@@ -311,98 +205,8 @@ pdflatex main.tex
 - NVIDIA Developer Documentation (2024). "CUDA-Q Platform Performance Benchmarks"
 - Apple Inc. (2024). "Apple Silicon Unified Memory Architecture Technical Overview"
 
-## 🎯 Comprehensive Quantum Circuit Examples
-
-This section provides detailed ASCII circuit diagrams and implementations for all quantum algorithms and operations supported by mlxQuantum on Apple Silicon.
 
 
-### mlxQuantum Implementation Notes
-
-#### Memory Requirements
-```
-Qubits | State Vector Size | Memory (Complex64)
--------|------------------|------------------
-  10   |      1,024       |      8 KB
-  15   |     32,768       |    256 KB
-  20   |   1,048,576      |      8 MB
-  25   |  33,554,432      |    256 MB
-  30   | 1,073,741,824    |      8 GB
-```
-
-#### Apple Silicon Optimization
-```
-- Unified memory architecture eliminates CPU-GPU transfers
-- Metal Performance Shaders for parallel gate operations
-- Energy efficiency: ~2.3× better than discrete GPUs
-- Competitive performance: 85% of cuQuantum throughput
-```
-
-#### Compilation Commands
-```bash
-# Single example
-g++ -std=c++17 -O3 -I.. -framework Metal -framework Foundation \
-    -o example example.cpp
-
-# All examples
-./run_all_tests.sh
-
-# Benchmarks
-./comprehensive_cuquantum_comparison_test
-```
-
-This completes the comprehensive ASCII circuit documentation for mlxQuantum. All circuits are optimized for Apple Silicon execution with Metal GPU acceleration while maintaining educational clarity and theoretical rigor.
-
-## 🔧 Advanced Configuration
-
-### CMake Options
-
-```bash
-# Release build with optimizations
-cmake -DCMAKE_BUILD_TYPE=Release ..
-
-# Debug build with symbols
-cmake -DCMAKE_BUILD_TYPE=Debug ..
-
-# Custom Metal shader path
-cmake -DMETAL_SHADER_PATH=/custom/path ..
-```
-
-### Environment Variables
-
-```bash
-# Enable detailed Metal performance logging
-export MTL_DEBUG_LAYER=1
-
-# Control thread pool size
-export mlxQUANTUM_THREADS=8
-
-# Enable verbose quantum state logging
-export mlxQUANTUM_VERBOSE=1
-```
-
-## 🤝 Contributing
-
-We welcome contributions to mlxQuantum! Please see our contribution guidelines:
-
-1. **Fork the Repository**: Create your own fork of mlxQuantum
-2. **Create Feature Branch**: `git checkout -b feature/amazing-feature`
-3. **Add Tests**: Ensure all new functionality includes comprehensive tests
-4. **Update Documentation**: Keep README and code comments current
-5. **Submit Pull Request**: Describe your changes and their benefits
-
-### Development Setup
-
-```bash
-# Install development dependencies
-brew install cmake ninja
-
-# Setup pre-commit hooks
-pip install pre-commit
-pre-commit install
-
-# Run code formatting
-clang-format -i *.cpp *.h
-```
 
 ## 📄 License
 
@@ -433,9 +237,6 @@ SOFTWARE.
 ## 📞 Contact & Support
 
 - **Author**: Shlomo Kashani
-- **Email**: shlomo.kashani@example.com
-- **Issues**: Please report bugs and feature requests through GitHub Issues
-- **Discussions**: Join our community discussions for questions and collaboration
 
 ## 🌟 Acknowledgments
 
@@ -453,12 +254,6 @@ The field has seen significant advances in 2024-2025:
 - **Multi-GPU Quantum Simulation**: Scaling to thousands of qubits using supercomputing clusters
 - **Apple Silicon AI Efficiency**: Breakthrough performance in LLM inference suggesting quantum computing potential
 - **Hybrid Quantum-Classical Algorithms**: Growing importance of integrated classical-quantum workflows
-
----
-
-**mlxQuantum**: Pioneering energy-efficient quantum computing on Apple Silicon, bridging the gap between quantum algorithm research and sustainable high-performance computing. 🚀🔬⚡
-
----
 
 *"The future of quantum computing lies not just in raw computational power, but in the intelligent integration of specialized hardware, unified memory architectures, and energy-efficient design—exactly what Apple Silicon brings to quantum research."*
 
