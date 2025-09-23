@@ -2,7 +2,7 @@
 
 <div align="center">
   
-  <img src="assets/mlx-logo.svg" alt="mlx-Quantum Logo"/>
+  <img src="assets/mlx_logo.svg" alt="mlx-Quantum Logo"/>
 
   **High-Performance Quantum Computing Framework for Apple Silicon - WORK IN PROGRESS -** 
 
