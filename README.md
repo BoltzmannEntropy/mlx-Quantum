@@ -1,6 +1,4 @@
-# mlx-Quantum
-
-<div align="center">
+<div align="left">
   
   <img src="assets/mlx_logo.svg" alt="mlx-Quantum Logo"/>
 
