@@ -28,6 +28,9 @@ Our framework leverages Apple Silicon's unified memory architecture to deliver q
 - **Performance Benchmarking**: Direct comparison framework with cuQuantum metrics
 - **Educational Focus**: Accessible interface for quantum algorithm research and education
 
+
+<img src="assets/HXH.png" alt="mlx-Quantum Logo"/>
+  
 ## 📊 Performance Highlights (UNVERIFIED CLAIMS) 
 
 | Metric | mlxQuantum | cuQuantum | Advantage |
