@@ -3,9 +3,10 @@
   <img src="assets/mlx_logo.svg" alt="mlx-Quantum Logo"/>
 
 <img src="assets/apple_mlx.jpg" width="20%">  
+
 **High-Performance Quantum Computing Framework for Apple Silicon - WORK IN PROGRESS -** 
 
-  *MLX-Based Modular Architecture for Energy-Efficient Quantum Circuit Simulation*
+*MLX-Based Modular Architecture for Energy-Efficient Quantum Circuit Simulation*
 
   [![macOS](https://img.shields.io/badge/macOS-13.3+-blue.svg)](https://www.apple.com/macos/)
   [![Apple Silicon](https://img.shields.io/badge/Apple%20Silicon-M1%2FM2%2FM3%2FM4-orange.svg)](https://developer.apple.com/silicon/)
