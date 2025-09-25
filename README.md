@@ -18,7 +18,8 @@
 Surprisingly, no framework had previously been created to run quantum-classical simulations natively on Apple Silicon. MLX-Quantum fills this gap as the first such framework, harnessing Apple's MLX and Shaders for optimal performance.
 
 
-  <img src="assets/apple_jpg.png" width="50%">
+
+  <img src="assets/apple_mlx.jpg" width="50%">
 
 Our framework leverages Apple Silicon's unified memory architecture to deliver quantum simulations competitive with NVIDIA's cuQuantum while offering better energy efficiency and demonstrates that consumer Apple hardware can achieve research-quality quantum simulation performance.
 
