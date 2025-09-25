@@ -19,7 +19,7 @@ Surprisingly, no framework had previously been created to run quantum-classical 
 
 
 
-  <img src="assets/apple_mlx.jpg" width="50%">
+  <img src="assets/apple_mlx.jpg" width="20%">
 
 Our framework leverages Apple Silicon's unified memory architecture to deliver quantum simulations competitive with NVIDIA's cuQuantum while offering better energy efficiency and demonstrates that consumer Apple hardware can achieve research-quality quantum simulation performance.
 
