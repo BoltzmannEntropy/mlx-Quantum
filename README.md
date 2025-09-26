@@ -33,42 +33,37 @@ Our framework leverages Apple Silicon's unified memory architecture to deliver q
 - **Educational Focus**: Accessible interface for quantum algorithm research and education
 
 
+## 📌 Current Status
+
+- Core subsystems (`src/core`) implement states, operations, information theory, simulator, and device layers backed by MLX tensors.
+- The consolidated regression suite in `src/test/mlxQuantumCoreTest.cpp` now covers 49 scenarios, including QuTiP-derived quantum information checks, circuit algorithms, and appendix examples.
+- Build configurations are maintained for Xcode (`bin64/`) and Ninja (`build_ninja/`); the latter is used for continuous validation during development.
+- Benchmark harnesses are scaffolded under `bench/`, with data generation pending verification before publication.
+
+
 <h1 align="center">    
   <img src="https://github.com/BoltzmannEntropy/polarization/blob/main/HXH.png" width="50%"></a>  
 </h1>
   
-## 📊 Performance Highlights (UNVERIFIED CLAIMS) 
+## 📊 Performance Benchmarks 
 
-| Metric | mlxQuantum | cuQuantum | Advantage |
-|--------|--------------|-----------|-----------|
-| **Gate Throughput** | 85% of cuQuantum | Baseline | Competitive Performance |
-| **Memory Efficiency** | 15% better | Baseline | Unified Memory Architecture |
-| **Energy Efficiency** | 2.3x better | Baseline | Apple Silicon Optimization |
-| **Supported Qubits** | Up to 24 qubits | Variable | Educational & Research Scale |
+Benchmark numbers are being re-validated. The tables below are intentionally left blank until we have reproducible measurements.
 
-### Comprehensive cuQuantum vs mlxQuantum Benchmark Comparison (UNVERIFIED CLAIMS) 
+| Metric | mlxQuantum | Reference | Notes |
+|--------|------------|-----------|-------|
+| Gate Throughput | TBD | TBD | Measurements pending |
+| Memory Footprint | TBD | TBD | Measurements pending |
+| Energy per Circuit | TBD | TBD | Measurements pending |
+| Maximum Simulated Qubits | TBD | TBD | Measurements pending |
 
-The following table presents detailed performance comparisons based on identical benchmark protocols from the [NVIDIA cuQuantum Performance Benchmark Suite](https://github.com/NVIDIA/cuQuantum/tree/main/benchmarks):
+### cuQuantum vs. mlxQuantum Benchmark Matrix (to be populated)
 
-| Algorithm | Platform | Hardware | Qubits | Time (ms) | MOPS | Power (W) | MOPS/W | Efficiency Advantage |
-|-----------|----------|----------|--------|-----------|------|-----------|--------|---------------------|
-| **QFT** | mlxQuantum | Apple M1 Pro | 8 | 0.03 | 1.778 | 30 | 0.059 | **147× efficiency** |
-| **QFT** | cuQuantum | NVIDIA A100 | 8 | 0.50 | 0.096 | 250 | 0.0004 | baseline |
-| **QFT** | cuQuantum | NVIDIA H100 | 8 | 0.25 | 0.192 | 350 | 0.0005 | baseline |
-| **QAOA** | mlxQuantum | Apple M1 Pro | 8 | 0.01 | 2.533 | 30 | 0.084 | **420× efficiency** |
-| **QAOA** | cuQuantum | NVIDIA A100 | 8 | 0.80 | 0.048 | 250 | 0.0002 | baseline |
-| **QV** | mlxQuantum | Apple M1 Pro | 8 | 0.04 | 2.526 | 30 | 0.084 | **280× efficiency** |
-| **QV** | cuQuantum | NVIDIA A100 | 8 | 1.20 | 0.080 | 250 | 0.0003 | baseline |
-| **QV** | cuQuantum | RTX4090 | 10 | 5.20 | 0.038 | 320 | 0.0001 | baseline |
-
-
-**Key Performance Insights (UNVERIFIED CLAIMS)**:
-- **Consumer Hardware**: Runs on $2000 MacBook vs. $10,000+ GPU server requirements for cuQuantum
-- **Unified Memory**: 15% memory efficiency improvement eliminates CPU-GPU transfer overhead
-- **Competitive Performance**: Maintains 85% of cuQuantum absolute performance while using 8× less power
-
-**Hardware Specifications**:
-- **mlxQuantum**: Apple M1 Pro (16-core GPU, 30W power consumption, 16GB unified memory)
+| Algorithm | Platform | Hardware | Qubits | Time (ms) | Power (W) | Efficiency Notes |
+|-----------|----------|----------|--------|-----------|-----------|-------------------|
+| QFT | TBD | TBD | TBD | TBD | TBD | Pending profiling |
+| QAOA | TBD | TBD | TBD | TBD | TBD | Pending profiling |
+| Quantum Volume | TBD | TBD | TBD | TBD | TBD | Pending profiling |
+| Time Evolution | TBD | TBD | TBD | TBD | TBD | Pending profiling |
 
 ## 📋 Requirements
 
@@ -90,13 +85,13 @@ The following table presents detailed performance comparisons based on identical
 
 ### Quantum-Classical Hybrid Computing
 
-### Performance Framework Comparison (UNVERIFIED CLAIMS) 
+### Framework Comparison (data pending)
 
-| Framework | Platform | Performance | Energy Efficiency | Memory Architecture | Developer Experience |
-|-----------|----------|-------------|-------------------|--------------------|-----------------------|
-| **CUDA (cuQuantum)** | NVIDIA GPU | Baseline (100%) | Baseline | Discrete Memory | Excellent (Mature SDK) |
-| **Vulkan Compute** | Cross-platform | ~70% of CUDA | ~85% of CUDA | Platform Dependent | Complex (Low-level) |
-| **Metal (mlxQuantum)** | Apple Silicon | 85% of cuQuantum | **2.3x better** | **Unified Memory** | Good (Apple Tools) |
+| Framework | Platform | Relative Performance | Energy Profile | Memory Model | Developer Experience |
+|-----------|----------|----------------------|----------------|--------------|---------------------|
+| CUDA (cuQuantum) | TBD | TBD | TBD | TBD | TBD |
+| Vulkan Compute | TBD | TBD | TBD | TBD | TBD |
+| Metal (mlxQuantum) | TBD | TBD | TBD | TBD | TBD |
 
 ## 🏗️ Quick Start
 
