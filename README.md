@@ -1,8 +1,7 @@
 <div align="left">
   
-  <img src="assets/mlx_logo.svg" alt="mlx-Quantum Logo"/>
+  <img src="assets/mlx_logo.png" alt="mlx-Quantum Logo"/>
 
-<img src="assets/apple_mlx.jpg" width="20%">  
 
 **High-Performance Quantum Computing Framework for Apple Silicon - WORK IN PROGRESS -** 
 
@@ -32,6 +31,7 @@ Our framework leverages Apple Silicon's unified memory architecture to deliver q
 - **Performance Benchmarking**: Direct comparison framework with cuQuantum metrics
 - **Educational Focus**: Accessible interface for quantum algorithm research and education
 
+<img src="assets/apple_mlx.jpg" width="20%">  
 
 ## 📌 Current Status
 
